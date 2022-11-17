@@ -11,28 +11,28 @@ const userAuthService = {
     return createdNewUser;
   },
 
-  login: async (email, password) => {
-    const userInfo = await User.findByEmail(email);
+  // login: async (email, password) => {
+  //   const userInfo = await User.findByEmail(email);
 
-    if (!userInfo) throw new Error("이메일이 없습니다.");
+  //   if (!userInfo) throw new Error("이메일이 없습니다.");
 
-    const currentPasswordHash = userInfo.password;
-    const isPasswordcurrent = await bcrypt.compare(
-      password,
-      currentPasswordHash
-    );
+  //   const currentPasswordHash = userInfo.password;
+  //   const isPasswordcurrent = await bcrypt.compare(
+  //     password,
+  //     currentPasswordHash
+  //   );
 
-    if (!isPasswordcurrent) throw new Error("비밀번호가 일치하지 않습니다.");
+  //   if (!isPasswordcurrent) throw new Error("비밀번호가 일치하지 않습니다.");
 
-    const secretKey = process.env.JWT_SECRET_KEY || "jwt-secret-key";
-    const token = jwt.sign({ userId: userInfo.userId }, secretKey);
-    const { userId, name } = userInfo;
-    const loginUser = { token, userId, email, name };
+  //   const secretKey = JWT_SECRET_KEY || "jwt-secret-key";
+  //   const token = jwt.sign({ userId: userInfo.userId }, secretKey);
+  //   const { userId, name } = userInfo;
+  //   const loginUser = { token, userId, email, name };
 
-    loginUser.errorMessage = null;
+  //   loginUser.errorMessage = null;
 
-    return loginUser;
-  },
+  //   return loginUser;
+  // },
 };
 
 exports.userAuthService = userAuthService;
