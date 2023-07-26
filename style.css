@@ -1,3 +1,9 @@
+:root {
+  --text-color: #F1F6F9;
+  --background-color: #9BA4B5;
+  --accent-color: #212A3E;
+}
+
 body {
   margin: 0;
   font-family: 'Nanum Gothic', sans-serif;
@@ -7,20 +13,20 @@ body {
 
 a {
   text-decoration: none;
-  color: #F1F6F9
+  color: var(--text-color)
 }
 
 .nav-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #9BA4B5;
+  background-color: var(--background-color);
   padding: .5rem .75rem
 }
 
 .nav-bar__logo {
   font-size: 1.5rem;
-  color: #212A3E
+  color: var(--accent-color);
 }
 
 .nav-bar__menu {
@@ -34,12 +40,12 @@ a {
 }
 
 .nav-bar__menu li a:hover {
-  color: #212A3E;
+  color: var(--accent-color);
 }
 
 .nav-bar__icons {
   list-style: none;
-  color: #212A3E;
+  color: var(--accent-color);
   display: flex;
   padding: 0;
 }
@@ -82,5 +88,10 @@ a {
 
   .nav-bar__toggleBtn {
     display: block;
+  }
+
+  .nav-bar__menu.active,
+  .nav-bar__icons.active {
+    display: flex;
   }
 }
